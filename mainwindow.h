@@ -26,8 +26,14 @@ public:
 public slots:
     void processNetworkData(QString);
 
+private slots:
+    void on_comboBox_currentTextChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     CryptoInfo *networkManager;
+    QString price;
+    QString rank;
+    QString marketCapUsd;
 };
 #endif // MAINWINDOW_H

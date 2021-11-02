@@ -6,41 +6,28 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>639</width>
-    <height>352</height>
+    <width>640</width>
+    <height>350</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Crypto Tracker</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>10</y>
-      <width>141</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>16</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Crypto Tracker</string>
-    </property>
-   </widget>
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>20</y>
+      <y>15</y>
       <width>141</width>
       <height>22</height>
      </rect>
     </property>
+    <item>
+     <property name="text">
+      <string>Select Coin</string>
+     </property>
+    </item>
     <item>
      <property name="text">
       <string>Bitcoin</string>
@@ -48,34 +35,134 @@
     </item>
     <item>
      <property name="text">
-      <string>Shiba Inu</string>
+      <string>Ethereum</string>
      </property>
     </item>
    </widget>
-   <widget class="QLabel" name="cryptoPrice">
+   <widget class="QLabel" name="Price_Num_Label">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>120</y>
-      <width>131</width>
+      <x>305</x>
+      <y>142</y>
+      <width>221</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="Price_Label">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>120</y>
-      <width>71</width>
+      <x>200</x>
+      <y>141</y>
+      <width>101</width>
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>Current Price:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Crypto_Name">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>80</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Rank_Label">
+    <property name="geometry">
+     <rect>
+      <x>258</x>
+      <y>120</y>
+      <width>41</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Rank:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Market_Cap_Label">
+    <property name="geometry">
+     <rect>
+      <x>213</x>
+      <y>164</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Market Cap:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Market_Cap_Num_Label">
+    <property name="geometry">
+     <rect>
+      <x>305</x>
+      <y>164</y>
+      <width>291</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Rank_Num_Label">
+    <property name="geometry">
+     <rect>
+      <x>305</x>
+      <y>120</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>
