@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Crypto Tracker</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
@@ -23,21 +26,9 @@
       <height>22</height>
      </rect>
     </property>
-    <item>
-     <property name="text">
-      <string>Select Coin</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Bitcoin</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Ethereum</string>
-     </property>
-    </item>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
    </widget>
    <widget class="QLabel" name="Price_Num_Label">
     <property name="geometry">

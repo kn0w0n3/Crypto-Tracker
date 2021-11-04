@@ -1,0 +1,26 @@
+Select Coin
+Bitcoin
+Ethereum 
+Binance Coin 
+Solana
+Tether
+Cardano
+XRP
+Polkadot
+Dogecoin
+USD Coin
+SHIBA INU
+Terra
+Avalanche
+Uniswap
+Chainlink
+Wrapped Bitcoin
+Litecoin
+Binance USD 
+Polygon
+ALGO
+Bitcoin Cash
+Cosmos
+Stellar
+Axie Infinity
+VeChain

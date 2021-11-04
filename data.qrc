@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>data/coinNameList.txt</file>
+        <file>data/coinId.txt</file>
+    </qresource>
+</RCC>

@@ -8,6 +8,9 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QJsonValue>
+#include <QFile>
+#include <QStringList>
+#include <QDataStream>
 
 #include "cryptoinfo.h"
 
@@ -21,19 +24,28 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    void populateComboBox();
     ~MainWindow();
 
 public slots:
     void processNetworkData(QString);
 
+
 private slots:
     void on_comboBox_currentTextChanged(const QString &arg1);
 
+    void on_comboBox_currentIndexChanged(int index);
+
 private:
     Ui::MainWindow *ui;
-    CryptoInfo *networkManager;
+    CryptoInfo *cryptoInfo;
     QString price;
     QString rank;
     QString marketCapUsd;
+
+    QStringList coinNameList;
+    QStringList coinIdList;
+    int counter;
+    bool coinFound;
 };
 #endif // MAINWINDOW_H
