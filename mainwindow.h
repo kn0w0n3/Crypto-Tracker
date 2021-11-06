@@ -10,7 +10,9 @@
 #include <QJsonValue>
 #include <QFile>
 #include <QStringList>
-#include <QDataStream>
+#include <QTime>
+#include <QTimer>
+#include <QDate>
 
 #include "cryptoinfo.h"
 
@@ -29,6 +31,8 @@ public:
 
 public slots:
     void processNetworkData(QString);
+    void displayTime();
+    void displayDate();
 
 
 private slots:
@@ -47,5 +51,7 @@ private:
     QStringList coinIdList;
     int counter = 0;
     bool coinFound = false;
+    QTimer *refreshClock;
+    QTimer *refreshDate;
 };
 #endif // MAINWINDOW_H

@@ -14,6 +14,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainW
     ui->Market_Cap_Label->setAttribute(Qt::WA_TranslucentBackground);
     ui->Market_Cap_Num_Label->setAttribute(Qt::WA_TranslucentBackground);
     ui->Crypto_Name->setAttribute(Qt::WA_TranslucentBackground);
+    ui->timeLabel->setAttribute(Qt::WA_TranslucentBackground);
+    ui->dateLabel->setAttribute(Qt::WA_TranslucentBackground);
+
+
 
     //Instantiate the cyypto info object.
     cryptoInfo = new CryptoInfo();
@@ -21,6 +25,16 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainW
 
     //Populate the combobox with coin info.
     populateComboBox();
+
+    //Timer to update the clock every 1 second
+      refreshClock = new QTimer();
+      connect(refreshClock, SIGNAL(timeout()), this, SLOT(displayTime()));
+      refreshClock->start(1000);
+
+      //Timer to refresh the date every 1 second
+      refreshDate = new QTimer();
+      connect(refreshDate, SIGNAL(timeout()), this, SLOT(displayDate()));
+      refreshDate->start(1000);
 }
 
 MainWindow::~MainWindow(){
@@ -44,6 +58,18 @@ void MainWindow::processNetworkData(QString datax){
     ui->Price_Num_Label->setText(price);
     ui->Rank_Num_Label->setText(rank);
     ui->Market_Cap_Num_Label->setText(marketCapUsd);
+}
+
+void MainWindow::displayTime(){
+    QTime cTime = QTime::currentTime();
+    //currentTime->textData(cTime.toString("hh:mm:ss"));
+    ui->timeLabel->setText(cTime.toString("hh:mm:ss"));
+}
+
+void MainWindow::displayDate(){
+    QDate cDate = QDate::currentDate();
+    //currentDate->textData(cDate.toString("MM/dd/yyyy"));
+    ui->dateLabel->setText(cDate.toString("MM/dd/yyyy"));
 }
 
 //Populate the dropdown box with coin names from a file
