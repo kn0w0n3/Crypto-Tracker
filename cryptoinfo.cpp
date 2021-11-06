@@ -1,12 +1,12 @@
 #include "cryptoinfo.h"
 
 CryptoInfo::CryptoInfo(QObject *parent) : QObject(parent){
-    this->qnam = new QNetworkAccessManager(this);
-    QObject::connect(this->qnam, SIGNAL(finished(QNetworkReply*)),this, SLOT(readyRead(QNetworkReply*)));
+    manager = new QNetworkAccessManager(this);
+    connect(manager, &QNetworkAccessManager::finished, this, &CryptoInfo::readyRead);
 }
 
 void CryptoInfo::makeRequest(QString endpointRequest){
-    qnam->get(QNetworkRequest(QUrl(endpointRequest)));
+    manager->get(QNetworkRequest(QUrl(endpointRequest)));
 }
 
 void CryptoInfo::readyRead(QNetworkReply *reply){

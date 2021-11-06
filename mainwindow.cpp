@@ -18,9 +18,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainW
     //Instantiate the cyypto info object.
     cryptoInfo = new CryptoInfo();
     connect(cryptoInfo, SIGNAL(dataReadyRead(QString)), this, SLOT(processNetworkData(QString)));
-    counter = 0;
-    coinFound = false;
 
+    //Populate the combobox with coin info.
     populateComboBox();
 }
 

@@ -45,7 +45,7 @@ private:
 
     QStringList coinNameList;
     QStringList coinIdList;
-    int counter;
-    bool coinFound;
+    int counter = 0;
+    bool coinFound = false;
 };
 #endif // MAINWINDOW_H

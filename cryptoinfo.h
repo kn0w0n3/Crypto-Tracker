@@ -19,7 +19,7 @@ public slots:
     void readyRead(QNetworkReply *);
 
 private:
-    QNetworkAccessManager *qnam;
+    QNetworkAccessManager *manager;
 };
 
 #endif // CRYPTOINFO_H
