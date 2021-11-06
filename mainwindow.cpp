@@ -17,8 +17,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainW
     ui->timeLabel->setAttribute(Qt::WA_TranslucentBackground);
     ui->dateLabel->setAttribute(Qt::WA_TranslucentBackground);
 
-
-
     //Instantiate the cyypto info object.
     cryptoInfo = new CryptoInfo();
     connect(cryptoInfo, SIGNAL(dataReadyRead(QString)), this, SLOT(processNetworkData(QString)));
@@ -27,14 +25,14 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainW
     populateComboBox();
 
     //Timer to update the clock every 1 second
-      refreshClock = new QTimer();
-      connect(refreshClock, SIGNAL(timeout()), this, SLOT(displayTime()));
-      refreshClock->start(1000);
+    refreshClock = new QTimer();
+    connect(refreshClock, SIGNAL(timeout()), this, SLOT(displayTime()));
+    refreshClock->start(1000);
 
-      //Timer to refresh the date every 1 second
-      refreshDate = new QTimer();
-      connect(refreshDate, SIGNAL(timeout()), this, SLOT(displayDate()));
-      refreshDate->start(1000);
+    //Timer to refresh the date every 1 second
+    refreshDate = new QTimer();
+    connect(refreshDate, SIGNAL(timeout()), this, SLOT(displayDate()));
+    refreshDate->start(1000);
 }
 
 MainWindow::~MainWindow(){
@@ -62,13 +60,11 @@ void MainWindow::processNetworkData(QString datax){
 
 void MainWindow::displayTime(){
     QTime cTime = QTime::currentTime();
-    //currentTime->textData(cTime.toString("hh:mm:ss"));
     ui->timeLabel->setText(cTime.toString("hh:mm:ss"));
 }
 
 void MainWindow::displayDate(){
     QDate cDate = QDate::currentDate();
-    //currentDate->textData(cDate.toString("MM/dd/yyyy"));
     ui->dateLabel->setText(cDate.toString("MM/dd/yyyy"));
 }
 
