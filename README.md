@@ -2,4 +2,4 @@
  App to check info about different cryptocurrencies
 
 ## Work in progress
-![crypto-tracker](https://user-images.githubusercontent.com/22214754/139779663-48704da5-0a8c-49b5-b83b-fe60513797b2.gif)
+![CRYPTO_TRACKER](https://user-images.githubusercontent.com/22214754/140619800-3bbb4ee9-76c4-43b5-a5f9-4ed3d282165f.gif)
