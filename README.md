@@ -1,7 +1,7 @@
 # Crypto-Tracker
  App to check info about different cryptocurrencies  
 
-![CRYPTO_TRACKER](https://user-images.githubusercontent.com/22214754/140619800-3bbb4ee9-76c4-43b5-a5f9-4ed3d282165f.gif)  
+![Crypto-Tracker-Darkmode](https://user-images.githubusercontent.com/22214754/140633875-a9b71196-4d7b-4b47-b50d-1cd861ab0ebd.gif)   
 
 ## About
 
