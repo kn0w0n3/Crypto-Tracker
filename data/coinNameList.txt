@@ -1,7 +1,7 @@
 Select Coin
 Bitcoin
-Ethereum 
-Binance Coin 
+Ethereum
+Binance Coin
 Solana
 Tether
 Cardano
@@ -16,7 +16,7 @@ Uniswap
 Chainlink
 Wrapped Bitcoin
 Litecoin
-Binance USD 
+Binance USD
 Polygon
 ALGO
 Bitcoin Cash

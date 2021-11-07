@@ -1,5 +1,27 @@
 <RCC>
     <qresource prefix="/">
         <file>images/bg.png</file>
+        <file>images/Bitcoin.png</file>
+        <file>images/Avalanche.png</file>
+        <file>images/Binance Coin.png</file>
+        <file>images/Cardano.png</file>
+        <file>images/Chainlink.png</file>
+        <file>images/Dogecoin.png</file>
+        <file>images/Litecoin.png</file>
+        <file>images/Polkadot.png</file>
+        <file>images/SHIBA INU.png</file>
+        <file>images/Solana.png</file>
+        <file>images/Terra.png</file>
+        <file>images/Tether.png</file>
+        <file>images/Uniswap.png</file>
+        <file>images/USD Coin.png</file>
+        <file>images/Wrapped Bitcoin.png</file>
+        <file>images/XRP.png</file>
+        <file>images/Ethereum.png</file>
+        <file>images/Algo.png</file>
+        <file>images/Binance USD.png</file>
+        <file>images/bg2.png</file>
+        <file>images/lightbulbw2.png</file>
+        <file>images/lightbulb_b.png</file>
     </qresource>
 </RCC>

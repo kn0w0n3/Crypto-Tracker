@@ -33,12 +33,12 @@ public slots:
     void processNetworkData(QString);
     void displayTime();
     void displayDate();
-
+    void updateCoinInfo();
 
 private slots:
     void on_comboBox_currentTextChanged(const QString &arg1);
-
     void on_comboBox_currentIndexChanged(int index);
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -46,12 +46,16 @@ private:
     QString price;
     QString rank;
     QString marketCapUsd;
-
+    QString availableSupply;
+    QString maxSupply;
+    QString currentRequest;
     QStringList coinNameList;
     QStringList coinIdList;
     int counter = 0;
     bool coinFound = false;
     QTimer *refreshClock;
     QTimer *refreshDate;
+    QTimer *updateCoinData;
+    bool darkmodeEnabled = false;
 };
 #endif // MAINWINDOW_H

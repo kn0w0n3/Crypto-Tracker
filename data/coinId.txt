@@ -14,8 +14,8 @@ avalanche
 uniswap
 chainlink
 wrapped-bitcoin
-binance-usd
 litecoin
+binance-usd
 polygon
 algorand
 bitcoin-cash
