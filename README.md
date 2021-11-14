@@ -3,7 +3,7 @@
 
 ![ct2](https://user-images.githubusercontent.com/22214754/141410874-78b72c8b-b8c9-40ab-b54a-2f4b09d159b0.JPG)  
 
-![ether](https://user-images.githubusercontent.com/22214754/141673798-702c951d-da45-40f1-970d-e8ae1a65038d.gif)  
+![crypto_Tracker_bg1](https://user-images.githubusercontent.com/22214754/141688918-05459008-617e-4b11-b4b7-03b265f13db7.gif)    
 
 ![geometric](https://user-images.githubusercontent.com/22214754/141673643-4fcc8967-a638-432e-8126-f9a225abba57.gif)
 
