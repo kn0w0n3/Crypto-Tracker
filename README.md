@@ -1,7 +1,10 @@
 # Crypto-Tracker
  App to check info about different cryptocurrencies  
 
-![ct2](https://user-images.githubusercontent.com/22214754/141410874-78b72c8b-b8c9-40ab-b54a-2f4b09d159b0.JPG)
+![ct2](https://user-images.githubusercontent.com/22214754/141410874-78b72c8b-b8c9-40ab-b54a-2f4b09d159b0.JPG)  
+
+![ctab2](https://user-images.githubusercontent.com/22214754/141665475-28b1c660-e675-4c6e-b134-9e2ddfab00b1.gif)
+
 
 ## About
 
