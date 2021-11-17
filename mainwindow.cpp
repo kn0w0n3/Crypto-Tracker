@@ -28,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainW
     ui->timeLabel->setAttribute(Qt::WA_TranslucentBackground);
     ui->dateLabel->setAttribute(Qt::WA_TranslucentBackground);
     ui->rectBackgroundLabel->setAttribute(Qt::WA_TranslucentBackground);
-    //this->setFixedSize(QSize(640, 310));
+    this->setFixedSize(QSize(800, 450));
 
     ui->rankLabel->setStyleSheet("color:white;");
     ui->rankNumLabel->setStyleSheet("color:white;");
@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainW
     ui->dateLabel->setStyleSheet("color:white;");
 
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,810,450);
+    scene->setSceneRect(0,0,800,450);
 
     ui->graphicsView->setScene(scene);
     ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
