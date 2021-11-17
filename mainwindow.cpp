@@ -9,7 +9,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainW
     ui->marketCapLabel->hide();
     ui->availableSupplyLabel->hide();
     ui->maxSupplyLabel->hide();
-    //ui->pushButton->hide();
 
     //Set the background image of the GUI and make the labels transparent.
     //ui->centralwidget->setStyleSheet("background-image: url(:/images/bg.png);");
@@ -151,7 +150,7 @@ void MainWindow::updateCoinInfo(){
 //Populate the dropdown box with coin names from a file
 void MainWindow::populateComboBox(){
     QFile inputFile(":/data/coinNameList.txt");
-    if (inputFile.open(QIODevice::ReadOnly)) {
+    if(inputFile.open(QIODevice::ReadOnly)){
         QTextStream in(&inputFile);
         while (!in.atEnd()){
             QString line = in.readLine();
@@ -184,7 +183,7 @@ void MainWindow::on_comboBox_currentIndexChanged(int index){
     }
     coinSelected = true;
     QFile inputFile(":/data/coinId.txt");
-    if (inputFile.open(QIODevice::ReadOnly)) {
+    if(inputFile.open(QIODevice::ReadOnly)){
         QTextStream in(&inputFile);
         while (!in.atEnd()){
             QString line = in.readLine();
@@ -238,7 +237,6 @@ void MainWindow::on_themeButton_clicked(){
         ui->avialableSupplyNumLabel->hide();
         ui->maxSupplyNumLabel->hide();
     }
-
     if(themeButtonClicked == true){
         return;
     }
