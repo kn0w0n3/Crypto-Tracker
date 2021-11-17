@@ -20,8 +20,12 @@
         <file>images/Ethereum.png</file>
         <file>images/Algo.png</file>
         <file>images/Binance USD.png</file>
-        <file>images/bg2.png</file>
-        <file>images/lightbulbw2.png</file>
-        <file>images/lightbulb_b.png</file>
+        <file>images/cube_bg.png</file>
+        <file>images/alert_button.png</file>
+        <file>images/home_button.png</file>
+        <file>images/theme_button.png</file>
+        <file>images/cryptoTrackerBanner.png</file>
+        <file>images/rectbg2.png</file>
+        <file>images/blue.mp4</file>
     </qresource>
 </RCC>

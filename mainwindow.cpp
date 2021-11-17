@@ -4,8 +4,15 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainWindow){
     ui->setupUi(this);
 
+    ui->priceLabel->hide();
+    ui->rankLabel->hide();
+    ui->marketCapLabel->hide();
+    ui->availableSupplyLabel->hide();
+    ui->maxSupplyLabel->hide();
+    //ui->pushButton->hide();
+
     //Set the background image of the GUI and make the labels transparent.
-    ui->centralwidget->setStyleSheet("background-image: url(:/images/bg.png);");
+    //ui->centralwidget->setStyleSheet("background-image: url(:/images/bg.png);");
     ui->priceLabel->setAttribute(Qt::WA_TranslucentBackground);
     ui->priceNumLabel->setAttribute(Qt::WA_TranslucentBackground);
     ui->rankLabel->setAttribute(Qt::WA_TranslucentBackground);
@@ -20,7 +27,43 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainW
     ui->Crypto_Name->setAttribute(Qt::WA_TranslucentBackground);
     ui->timeLabel->setAttribute(Qt::WA_TranslucentBackground);
     ui->dateLabel->setAttribute(Qt::WA_TranslucentBackground);
-    this->setFixedSize(QSize(640, 310));
+    ui->rectBackgroundLabel->setAttribute(Qt::WA_TranslucentBackground);
+    //this->setFixedSize(QSize(640, 310));
+
+    ui->rankLabel->setStyleSheet("color:white;");
+    ui->rankNumLabel->setStyleSheet("color:white;");
+    ui->priceLabel->setStyleSheet("color:white;");
+    ui->priceNumLabel->setStyleSheet("color:white;");
+    ui->marketCapLabel->setStyleSheet("color:white;");
+    ui->marketCapNumLabel->setStyleSheet("color:white;");
+    ui->availableSupplyLabel->setStyleSheet("color:white;");
+    ui->avialableSupplyNumLabel->setStyleSheet("color:white;");
+    ui->maxSupplyLabel->setStyleSheet("color:white;");
+    ui->maxSupplyNumLabel->setStyleSheet("color:white;");
+    ui->Crypto_Name->setStyleSheet("color:white;");
+    ui->timeLabel->setStyleSheet("color:white;");
+    ui->dateLabel->setStyleSheet("color:white;");
+
+    scene = new QGraphicsScene();
+    scene->setSceneRect(0,0,810,450);
+
+    ui->graphicsView->setScene(scene);
+    ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    staticBackground = new StaticBackground(QPixmap(":images/cube_bg"));
+    staticBackground->setPos(0,0);
+    //scene->addItem(staticBackground);
+
+    player = new QMediaPlayer(this);
+    backgroundOne = new QGraphicsVideoItem();
+    QSize size(800,450);
+    backgroundOne->setSize(size);
+
+    player->setVideoOutput(backgroundOne);
+    ui->graphicsView->scene()->addItem(backgroundOne);
+    player->setMedia(QUrl("qrc:/images/blue.mp4"));
+    player->play();
 
     //Instantiate the cyypto info object.
     cryptoInfo = new CryptoInfo();
@@ -39,10 +82,15 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainW
     connect(refreshDate, SIGNAL(timeout()), this, SLOT(displayDate()));
     refreshDate->start(1000);
 
-    //Timer to refresh the date every 1 second
+    //Timer to refresh the coin data every 1 second
     updateCoinData = new QTimer();
     connect(updateCoinData, SIGNAL(timeout()), this, SLOT(updateCoinInfo()));
     updateCoinData->start(1000);
+
+    //Timer to loop media. Currently a bug exists that is not fixed.
+    loopMedia = new QTimer();
+    connect(loopMedia, SIGNAL(timeout()), this, SLOT(checkMediaState()));
+    loopMedia->start(1);
 }
 
 MainWindow::~MainWindow(){
@@ -70,13 +118,23 @@ void MainWindow::processNetworkData(QString datax){
     ui->marketCapNumLabel->setText(marketCapUsd);
     ui->avialableSupplyNumLabel->setText(availableSupply);
     ui->maxSupplyNumLabel->setText(maxSupply);
+
+    if(themeButtonClicked == false){
+    ui->priceLabel->show();
+    ui->rankLabel->show();
+    ui->marketCapLabel->show();
+    ui->availableSupplyLabel->show();
+    ui->maxSupplyLabel->show();
+    }
 }
 
+//Function to display the time
 void MainWindow::displayTime(){
     QTime cTime = QTime::currentTime();
     ui->timeLabel->setText(cTime.toString("hh:mm:ss"));
 }
 
+//Function to display the date
 void MainWindow::displayDate(){
     QDate cDate = QDate::currentDate();
     ui->dateLabel->setText(cDate.toString("MM/dd/yyyy"));
@@ -124,6 +182,7 @@ void MainWindow::on_comboBox_currentIndexChanged(int index){
     if(index == 0){
         return;
     }
+    coinSelected = true;
     QFile inputFile(":/data/coinId.txt");
     if (inputFile.open(QIODevice::ReadOnly)) {
         QTextStream in(&inputFile);
@@ -148,46 +207,39 @@ void MainWindow::on_comboBox_currentIndexChanged(int index){
     }
 }
 
-//Button for dark mode
-void MainWindow::on_pushButton_clicked(){
-    if(darkmodeEnabled == false){
-        darkmodeEnabled = true;
-        ui->centralwidget->setStyleSheet("background-image: url(:/images/bg2.png);");
-        ui->rankLabel->setStyleSheet("color:white;");
-        ui->rankNumLabel->setStyleSheet("color:white;");
-        ui->priceLabel->setStyleSheet("color:white;");
-        ui->priceNumLabel->setStyleSheet("color:white;");
-        ui->marketCapLabel->setStyleSheet("color:white;");
-        ui->marketCapNumLabel->setStyleSheet("color:white;");
-        ui->availableSupplyLabel->setStyleSheet("color:white;");
-        ui->avialableSupplyNumLabel->setStyleSheet("color:white;");
-        ui->maxSupplyLabel->setStyleSheet("color:white;");
-        ui->maxSupplyNumLabel->setStyleSheet("color:white;");
-        ui->Crypto_Name->setStyleSheet("color:white;");
-        ui->timeLabel->setStyleSheet("color:white;");
-        ui->dateLabel->setStyleSheet("color:white;");
-        ui->pushButton->setIcon(QIcon(":/images/lightbulb_b.png"));
-        ui->comboBox->setStyleSheet("color:rgb(255, 255, 255);");
-        ui->comboBox->setFocus();
+//Function to loop the media. A bug currently exist in Qt that causes gaps in video.
+void MainWindow::checkMediaState(){
+    //qDebug() << player->position();
+
+    if(player->position() > 9800 ){
+        player->setPosition(0);
+        player->play();
     }
-    else if(darkmodeEnabled == true){
-        darkmodeEnabled = false;
-        ui->centralwidget->setStyleSheet("background-image: url(:/images/bg.png);");
-        ui->rankLabel->setStyleSheet("color:black;");
-        ui->rankNumLabel->setStyleSheet("color:black;");
-        ui->priceLabel->setStyleSheet("color:black;");
-        ui->priceNumLabel->setStyleSheet("color:black;");
-        ui->marketCapLabel->setStyleSheet("color:black;");
-        ui->marketCapNumLabel->setStyleSheet("color:black;");
-        ui->availableSupplyLabel->setStyleSheet("color:black;");
-        ui->avialableSupplyNumLabel->setStyleSheet("color:black;");
-        ui->maxSupplyLabel->setStyleSheet("color:black;");
-        ui->maxSupplyNumLabel->setStyleSheet("color:black;");
-        ui->Crypto_Name->setStyleSheet("color:black;");
-        ui->timeLabel->setStyleSheet("color:black;");
-        ui->dateLabel->setStyleSheet("color:black;");
-        ui->pushButton->setIcon(QIcon(":/images/lightbulbw2.png"));
-        ui->comboBox->setStyleSheet("color:black;");
-        ui->comboBox->setFocus();
+}
+
+//Function to go to theme selection. In progress still
+void MainWindow::on_themeButton_clicked(){
+    if(coinSelected == false){
+        return;
+    }
+    if(themeButtonClicked == false){
+        themeButtonClicked = true;
+        ui->priceLabel->hide();
+        ui->rankLabel->hide();
+        ui->marketCapLabel->hide();
+        ui->availableSupplyLabel->hide();
+        ui->maxSupplyLabel->hide();
+        ui->comboBox->hide();
+        ui->Crypto_Name->hide();
+        ui->coinLogoLabel->hide();
+        ui->priceNumLabel->hide();
+        ui->rankNumLabel->hide();
+        ui->marketCapNumLabel->hide();
+        ui->avialableSupplyNumLabel->hide();
+        ui->maxSupplyNumLabel->hide();
+    }
+
+    if(themeButtonClicked == true){
+        return;
     }
 }

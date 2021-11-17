@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>308</height>
+    <width>800</width>
+    <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,62 +23,13 @@
    </size>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QComboBox" name="comboBox">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>15</y>
-      <width>141</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="priceNumLabel">
-    <property name="geometry">
-     <rect>
-      <x>305</x>
-      <y>142</y>
-      <width>221</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="priceLabel">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>142</y>
-      <width>101</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Current Price:</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="Crypto_Name">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>80</y>
+      <x>420</x>
+      <y>132</y>
       <width>201</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -90,66 +41,35 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="rankLabel">
+   <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
      <rect>
-      <x>258</x>
-      <y>120</y>
-      <width>41</width>
-      <height>20</height>
+      <x>0</x>
+      <y>0</y>
+      <width>810</width>
+      <height>451</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Rank:</string>
-    </property>
    </widget>
-   <widget class="QLabel" name="marketCapLabel">
+   <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>213</x>
-      <y>164</y>
+      <x>83</x>
+      <y>10</y>
+      <width>141</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dateLabel">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>10</y>
       <width>91</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Market Cap:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="marketCapNumLabel">
-    <property name="geometry">
-     <rect>
-      <x>305</x>
-      <y>164</y>
-      <width>291</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="rankNumLabel">
-    <property name="geometry">
-     <rect>
-      <x>305</x>
-      <y>120</y>
-      <width>131</width>
       <height>21</height>
      </rect>
     </property>
@@ -165,8 +85,8 @@
    <widget class="QLabel" name="timeLabel">
     <property name="geometry">
      <rect>
-      <x>538</x>
-      <y>30</y>
+      <x>700</x>
+      <y>35</y>
       <width>91</width>
       <height>21</height>
      </rect>
@@ -180,47 +100,42 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="dateLabel">
+   <widget class="QLabel" name="sideBarLabel">
     <property name="geometry">
      <rect>
-      <x>538</x>
-      <y>10</y>
-      <width>91</width>
-      <height>21</height>
+      <x>0</x>
+      <y>0</y>
+      <width>61</width>
+      <height>451</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(16, 16, 16);
+
+</string>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="availableSupplyLabel">
+   <widget class="QLabel" name="coinLogoLabel">
     <property name="geometry">
      <rect>
-      <x>176</x>
-      <y>186</y>
-      <width>131</width>
-      <height>21</height>
+      <x>730</x>
+      <y>380</y>
+      <width>66</width>
+      <height>66</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
     <property name="text">
-     <string>Available Supply:</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="maxSupplyLabel">
     <property name="geometry">
      <rect>
-      <x>209</x>
-      <y>208</y>
+      <x>284</x>
+      <y>268</y>
       <width>91</width>
       <height>20</height>
      </rect>
@@ -234,12 +149,48 @@
      <string>Max Supply:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="avialableSupplyNumLabel">
+   <widget class="QLabel" name="marketCapLabel">
     <property name="geometry">
      <rect>
-      <x>305</x>
-      <y>188</y>
-      <width>291</width>
+      <x>288</x>
+      <y>224</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Market Cap:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="priceLabel">
+    <property name="geometry">
+     <rect>
+      <x>275</x>
+      <y>202</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Current Price:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="priceNumLabel">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>202</y>
+      <width>221</width>
       <height>21</height>
      </rect>
     </property>
@@ -255,8 +206,8 @@
    <widget class="QLabel" name="maxSupplyNumLabel">
     <property name="geometry">
      <rect>
-      <x>305</x>
-      <y>210</y>
+      <x>380</x>
+      <y>270</y>
       <width>291</width>
       <height>21</height>
      </rect>
@@ -270,48 +221,228 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="coinLogoLabel">
+   <widget class="QLabel" name="avialableSupplyNumLabel">
     <property name="geometry">
      <rect>
-      <x>8</x>
-      <y>237</y>
-      <width>66</width>
-      <height>66</height>
+      <x>380</x>
+      <y>248</y>
+      <width>291</width>
+      <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QLabel" name="rankLabel">
     <property name="geometry">
      <rect>
-      <x>605</x>
-      <y>280</y>
-      <width>30</width>
-      <height>25</height>
+      <x>333</x>
+      <y>180</y>
+      <width>41</width>
+      <height>20</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Rank:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="availableSupplyLabel">
+    <property name="geometry">
+     <rect>
+      <x>251</x>
+      <y>246</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Available Supply:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="rankNumLabel">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>180</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="marketCapNumLabel">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>224</y>
+      <width>291</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>40</width>
+      <height>40</height>
+     </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="icon">
      <iconset resource="images.qrc">
-      <normaloff>:/images/lightbulbw2.png</normaloff>:/images/lightbulbw2.png</iconset>
+      <normaloff>:/images/home_button.png</normaloff>:/images/home_button.png</iconset>
     </property>
     <property name="iconSize">
      <size>
-      <width>30</width>
-      <height>25</height>
+      <width>40</width>
+      <height>40</height>
      </size>
     </property>
     <property name="flat">
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/images/alert_button.png</normaloff>:/images/alert_button.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>40</width>
+      <height>40</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="themeButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="images.qrc">
+      <normaloff>:/images/theme_button.png</normaloff>:/images/theme_button.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>40</width>
+      <height>40</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="rectBackgroundLabel">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>110</y>
+      <width>501</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="images.qrc">:/images/rectbg2.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="banner">
+    <property name="geometry">
+     <rect>
+      <x>325</x>
+      <y>2</y>
+      <width>345</width>
+      <height>45</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="images.qrc">:/images/cryptoTrackerBanner.png</pixmap>
+    </property>
+   </widget>
+   <zorder>graphicsView</zorder>
+   <zorder>comboBox</zorder>
+   <zorder>dateLabel</zorder>
+   <zorder>timeLabel</zorder>
+   <zorder>sideBarLabel</zorder>
+   <zorder>coinLogoLabel</zorder>
+   <zorder>pushButton_2</zorder>
+   <zorder>pushButton_3</zorder>
+   <zorder>themeButton</zorder>
+   <zorder>rectBackgroundLabel</zorder>
+   <zorder>Crypto_Name</zorder>
+   <zorder>availableSupplyLabel</zorder>
+   <zorder>avialableSupplyNumLabel</zorder>
+   <zorder>marketCapLabel</zorder>
+   <zorder>marketCapNumLabel</zorder>
+   <zorder>maxSupplyLabel</zorder>
+   <zorder>maxSupplyNumLabel</zorder>
+   <zorder>priceLabel</zorder>
+   <zorder>priceNumLabel</zorder>
+   <zorder>rankLabel</zorder>
+   <zorder>rankNumLabel</zorder>
+   <zorder>banner</zorder>
   </widget>
  </widget>
  <resources>

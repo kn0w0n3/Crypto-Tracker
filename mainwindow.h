@@ -13,8 +13,13 @@
 #include <QTime>
 #include <QTimer>
 #include <QDate>
+#include <QGraphicsScene>
+#include <QGraphicsVideoItem>
+#include <QMediaPlayer>
+
 
 #include "cryptoinfo.h"
+#include "staticbackground.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -38,10 +43,12 @@ public slots:
 private slots:
     void on_comboBox_currentTextChanged(const QString &arg1);
     void on_comboBox_currentIndexChanged(int index);
-    void on_pushButton_clicked();
+    void checkMediaState();
+    void on_themeButton_clicked();
 
 private:
     Ui::MainWindow *ui;
+    QGraphicsScene *scene;
     CryptoInfo *cryptoInfo;
     QString price;
     QString rank;
@@ -56,6 +63,14 @@ private:
     QTimer *refreshClock;
     QTimer *refreshDate;
     QTimer *updateCoinData;
+    QTimer *loopMedia;
     bool darkmodeEnabled = false;
+
+    StaticBackground *staticBackground;
+    bool themeButtonClicked = false;
+    bool coinSelected = false;
+    QGraphicsVideoItem *backgroundOne;
+    QMediaPlayer *player;
+
 };
 #endif // MAINWINDOW_H
