@@ -4,7 +4,7 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainWindow){
     ui->setupUi(this);
 
-    //Initially hise the labels
+    //Initially hide the labels
     ui->rankLabel->hide();
     ui->priceLabel->hide();  
     ui->marketCapLabel->hide();
