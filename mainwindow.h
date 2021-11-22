@@ -41,10 +41,13 @@ public slots:
     void updateCoinInfo();
 
 private slots:
-    void on_comboBox_currentTextChanged(const QString &arg1);
-    void on_comboBox_currentIndexChanged(int index);
+
     void checkMediaState();
     void on_themeButton_clicked();
+    void on_homeButton_clicked();
+    void on_coinComboBox_currentIndexChanged(int index);
+    void on_coinComboBox_currentTextChanged(const QString &arg1);
+    void on_themeComboBox_currentTextChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;
@@ -58,19 +61,25 @@ private:
     QString currentRequest;
     QStringList coinNameList;
     QStringList coinIdList;
-    int counter = 0;
-    bool coinFound = false;
+
     QTimer *refreshClock;
     QTimer *refreshDate;
     QTimer *updateCoinData;
     QTimer *loopMedia;
-    bool darkmodeEnabled = false;
 
     StaticBackground *staticBackground;
-    bool themeButtonClicked = false;
-    bool coinSelected = false;
-    QGraphicsVideoItem *backgroundOne;
+    QGraphicsVideoItem *animatedBackground;
     QMediaPlayer *player;
+    bool themeButtonClicked = false;
+    bool homebuttonClicked = false;
+    bool coinSelected = false;
+    bool staticBackgroundActive = false;
+    bool animatedBackgroungActive = false;
+    bool coinFound = false;
+    int counter = 0;
+
+
+
 
 };
 #endif // MAINWINDOW_H

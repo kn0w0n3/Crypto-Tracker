@@ -4,14 +4,14 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainWindow){
     ui->setupUi(this);
 
-    ui->priceLabel->hide();
+    //Initially hise the labels
     ui->rankLabel->hide();
+    ui->priceLabel->hide();  
     ui->marketCapLabel->hide();
     ui->availableSupplyLabel->hide();
     ui->maxSupplyLabel->hide();
 
-    //Set the background image of the GUI and make the labels transparent.
-    //ui->centralwidget->setStyleSheet("background-image: url(:/images/bg.png);");
+    //Make the labels transparent.
     ui->priceLabel->setAttribute(Qt::WA_TranslucentBackground);
     ui->priceNumLabel->setAttribute(Qt::WA_TranslucentBackground);
     ui->rankLabel->setAttribute(Qt::WA_TranslucentBackground);
@@ -27,8 +27,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainW
     ui->timeLabel->setAttribute(Qt::WA_TranslucentBackground);
     ui->dateLabel->setAttribute(Qt::WA_TranslucentBackground);
     ui->rectBackgroundLabel->setAttribute(Qt::WA_TranslucentBackground);
+
+    //Make the main window a fixed size
     this->setFixedSize(QSize(800, 450));
 
+    //Make text color white for labels
     ui->rankLabel->setStyleSheet("color:white;");
     ui->rankNumLabel->setStyleSheet("color:white;");
     ui->priceLabel->setStyleSheet("color:white;");
@@ -42,27 +45,22 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainW
     ui->Crypto_Name->setStyleSheet("color:white;");
     ui->timeLabel->setStyleSheet("color:white;");
     ui->dateLabel->setStyleSheet("color:white;");
+    ui->themeComboBox->hide();
 
+    //Create the graphics scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,450);
 
+    //Set the scene on the graphics view
     ui->graphicsView->setScene(scene);
     ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
+    //Make the initial backround static
     staticBackground = new StaticBackground(QPixmap(":images/cube_bg"));
     staticBackground->setPos(0,0);
-    //scene->addItem(staticBackground);
-
-    player = new QMediaPlayer(this);
-    backgroundOne = new QGraphicsVideoItem();
-    QSize size(800,450);
-    backgroundOne->setSize(size);
-
-    player->setVideoOutput(backgroundOne);
-    ui->graphicsView->scene()->addItem(backgroundOne);
-    player->setMedia(QUrl("qrc:/images/blue.mp4"));
-    player->play();
+    scene->addItem(staticBackground);
+    staticBackgroundActive = true;
 
     //Instantiate the cyypto info object.
     cryptoInfo = new CryptoInfo();
@@ -89,7 +87,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainW
     //Timer to loop media. Currently a bug exists that is not fixed.
     loopMedia = new QTimer();
     connect(loopMedia, SIGNAL(timeout()), this, SLOT(checkMediaState()));
-    loopMedia->start(1);
 }
 
 MainWindow::~MainWindow(){
@@ -99,7 +96,6 @@ MainWindow::~MainWindow(){
 //Get the network reply (API data). The JSON data is a nested object.
 void MainWindow::processNetworkData(QString datax){
     QString replyText = datax;
-    //qDebug() << replyText;
     QJsonDocument json_doc = QJsonDocument::fromJson(replyText.toUtf8());
     QJsonObject jsonObject = json_doc.object();
 
@@ -118,13 +114,12 @@ void MainWindow::processNetworkData(QString datax){
     ui->avialableSupplyNumLabel->setText(availableSupply);
     ui->maxSupplyNumLabel->setText(maxSupply);
 
-    if(themeButtonClicked == false){
+    //Show labels after coin is selected
     ui->priceLabel->show();
     ui->rankLabel->show();
     ui->marketCapLabel->show();
     ui->availableSupplyLabel->show();
     ui->maxSupplyLabel->show();
-    }
 }
 
 //Function to display the time
@@ -139,9 +134,9 @@ void MainWindow::displayDate(){
     ui->dateLabel->setText(cDate.toString("MM/dd/yyyy"));
 }
 
-//Update the coin info. This will be called by the timer evers 1 second.
+//Update the coin info. This will be called by the timer every 1 second.
 void MainWindow::updateCoinInfo(){
-    if(ui->comboBox->currentText() == "Select Coin"){
+    if(ui->coinComboBox->currentText() == "Select Coin"){
         return;
     }
     cryptoInfo->makeRequest(currentRequest);
@@ -159,25 +154,46 @@ void MainWindow::populateComboBox(){
         inputFile.close();
     }
     foreach(QString coinName, coinNameList){
-        ui->comboBox->addItem(coinName);
+        ui->coinComboBox->addItem(coinName);
     }
 }
 
-//Change the displayed coin named based on user selection
-void MainWindow::on_comboBox_currentTextChanged(const QString &arg1){
-    //QString coinName = arg1;
-    if(arg1 == "Select Coin"){
+//Function to loop the media. A bug currently exist in Qt that causes gaps in video.
+void MainWindow::checkMediaState(){
+    if(player->position() > 9800 ){
+        player->setPosition(0);
+        player->play();
+    }
+}
+
+//Show the theme selection combo box
+void MainWindow::on_themeButton_clicked(){
+    if(themeButtonClicked == true){
         return;
     }
-    else{
-        ui->Crypto_Name->setText(arg1);
-        QPixmap coinLogo(":/images/" + arg1 + ".png");
-        ui->coinLogoLabel->setPixmap(coinLogo);
+    if(themeButtonClicked == false){
+        themeButtonClicked = true;
+        homebuttonClicked = false;
+        ui->coinComboBox->hide();
+        ui->themeComboBox->show();
+    }
+}
+
+//Show the coin selection combo box
+void MainWindow::on_homeButton_clicked(){
+    if(homebuttonClicked == true){
+        return;
+    }
+    if(homebuttonClicked == false && themeButtonClicked == true){
+        themeButtonClicked = false;
+        homebuttonClicked = true;
+        ui->themeComboBox->hide();
+        ui->coinComboBox-> show();
     }
 }
 
 //Pull data from the CoinCap API based on user selection
-void MainWindow::on_comboBox_currentIndexChanged(int index){
+void MainWindow::on_coinComboBox_currentIndexChanged(int index){
     if(index == 0){
         return;
     }
@@ -206,38 +222,47 @@ void MainWindow::on_comboBox_currentIndexChanged(int index){
     }
 }
 
-//Function to loop the media. A bug currently exist in Qt that causes gaps in video.
-void MainWindow::checkMediaState(){
-    //qDebug() << player->position();
-
-    if(player->position() > 9800 ){
-        player->setPosition(0);
-        player->play();
+//Change the displayed coin named based on user selection
+void MainWindow::on_coinComboBox_currentTextChanged(const QString &arg1){
+    if(arg1 == "Select Coin"){
+        return;
+    }
+    else{
+        ui->Crypto_Name->setText(arg1);
+        QPixmap coinLogo(":/images/" + arg1 + ".png");
+        ui->coinLogoLabel->setPixmap(coinLogo);
     }
 }
 
-//Function to go to theme selection. In progress still
-void MainWindow::on_themeButton_clicked(){
-    if(coinSelected == false){
-        return;
+//Function to change the background
+void MainWindow::on_themeComboBox_currentTextChanged(const QString &arg1){
+    if(arg1 == "Static 1" && animatedBackgroungActive == true){
+        player->stop();
+        ui->graphicsView->scene()->removeItem(animatedBackground);
+        loopMedia->stop();
+        delete animatedBackground;
+        staticBackgroundActive = false;
+
+        staticBackground = new StaticBackground(QPixmap(":images/cube_bg"));
+        staticBackground->setPos(0,0);
+        scene->addItem(staticBackground);
+        staticBackgroundActive = true;
     }
-    if(themeButtonClicked == false){
-        themeButtonClicked = true;
-        ui->priceLabel->hide();
-        ui->rankLabel->hide();
-        ui->marketCapLabel->hide();
-        ui->availableSupplyLabel->hide();
-        ui->maxSupplyLabel->hide();
-        ui->comboBox->hide();
-        ui->Crypto_Name->hide();
-        ui->coinLogoLabel->hide();
-        ui->priceNumLabel->hide();
-        ui->rankNumLabel->hide();
-        ui->marketCapNumLabel->hide();
-        ui->avialableSupplyNumLabel->hide();
-        ui->maxSupplyNumLabel->hide();
-    }
-    if(themeButtonClicked == true){
-        return;
+    if(arg1 == "Animated 1" && staticBackgroundActive == true){
+        scene->removeItem(staticBackground);
+        delete staticBackground;
+        staticBackgroundActive = false;
+
+        animatedBackground = new QGraphicsVideoItem();
+        QSize size(800,450);
+        animatedBackground->setSize(size);
+
+        ui->graphicsView->scene()->addItem(animatedBackground);
+        player = new QMediaPlayer(this);
+        player->setVideoOutput(animatedBackground);
+        player->setMedia(QUrl("qrc:/images/blue.mp4"));
+        player->play();
+        loopMedia->start(1);
+        animatedBackgroungActive = true;
     }
 }
