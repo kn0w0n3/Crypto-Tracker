@@ -26,7 +26,7 @@
    <widget class="QLabel" name="Crypto_Name">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>430</x>
       <y>132</y>
       <width>201</width>
       <height>31</height>
@@ -337,37 +337,11 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>70</y>
-      <width>41</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="images.qrc">
-      <normaloff>:/images/alert_button.png</normaloff>:/images/alert_button.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>40</width>
-      <height>40</height>
-     </size>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QPushButton" name="themeButton">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>130</y>
+      <y>70</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -448,6 +422,26 @@
       <string>Animated 1</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>Animated 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Animated 3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Animated 4</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Animated 5</string>
+     </property>
+    </item>
    </widget>
    <zorder>graphicsView</zorder>
    <zorder>coinComboBox</zorder>
@@ -456,7 +450,6 @@
    <zorder>sideBarLabel</zorder>
    <zorder>coinLogoLabel</zorder>
    <zorder>homeButton</zorder>
-   <zorder>pushButton_3</zorder>
    <zorder>themeButton</zorder>
    <zorder>rectBackgroundLabel</zorder>
    <zorder>Crypto_Name</zorder>

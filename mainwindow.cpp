@@ -160,7 +160,7 @@ void MainWindow::populateComboBox(){
 
 //Function to loop the media. A bug currently exist in Qt that causes gaps in video.
 void MainWindow::checkMediaState(){
-    if(player->position() > 9800 ){
+    if(player->position() > videoLoopTime){
         player->setPosition(0);
         player->play();
     }
@@ -241,12 +241,20 @@ void MainWindow::on_themeComboBox_currentTextChanged(const QString &arg1){
         ui->graphicsView->scene()->removeItem(animatedBackground);
         loopMedia->stop();
         delete animatedBackground;
-        staticBackgroundActive = false;
+        animatedBackgroungActive = false;
 
         staticBackground = new StaticBackground(QPixmap(":images/cube_bg"));
         staticBackground->setPos(0,0);
         scene->addItem(staticBackground);
         staticBackgroundActive = true;
+    }
+    if(arg1 == "Static 1" && staticBackgroundActive == true){
+        scene->removeItem(staticBackground);
+        delete staticBackground;
+
+        staticBackground = new StaticBackground(QPixmap(":images/cube_bg"));
+        staticBackground->setPos(0,0);
+        scene->addItem(staticBackground);
     }
     if(arg1 == "Animated 1" && staticBackgroundActive == true){
         scene->removeItem(staticBackground);
@@ -260,9 +268,172 @@ void MainWindow::on_themeComboBox_currentTextChanged(const QString &arg1){
         ui->graphicsView->scene()->addItem(animatedBackground);
         player = new QMediaPlayer(this);
         player->setVideoOutput(animatedBackground);
-        player->setMedia(QUrl("qrc:/images/blue.mp4"));
+        player->setMedia(QUrl("qrc:/images/code2.mp4"));
+        videoLoopTime = 9800;
         player->play();
         loopMedia->start(1);
         animatedBackgroungActive = true;
+    }
+    if(arg1 == "Animated 1" && animatedBackgroungActive == true){
+        player->stop();
+        ui->graphicsView->scene()->removeItem(animatedBackground);
+        loopMedia->stop();
+        delete animatedBackground;
+
+        animatedBackground = new QGraphicsVideoItem();
+        QSize size(800,450);
+        animatedBackground->setSize(size);
+
+        ui->graphicsView->scene()->addItem(animatedBackground);
+        player = new QMediaPlayer(this);
+        player->setVideoOutput(animatedBackground);
+        player->setMedia(QUrl("qrc:/images/code2.mp4"));
+        videoLoopTime = 9800;
+        player->play();
+        loopMedia->start(1);
+    }
+    if(arg1 == "Animated 2" && staticBackgroundActive == true){
+        scene->removeItem(staticBackground);
+        delete staticBackground;
+        staticBackgroundActive = false;
+
+        animatedBackground = new QGraphicsVideoItem();
+        QSize size(800,450);
+        animatedBackground->setSize(size);
+
+        ui->graphicsView->scene()->addItem(animatedBackground);
+        player = new QMediaPlayer(this);
+        player->setVideoOutput(animatedBackground);
+        player->setMedia(QUrl("qrc:/images/blue.mp4"));
+        videoLoopTime = 9800;
+        player->play();
+        loopMedia->start(1);
+        animatedBackgroungActive = true;
+    }
+    if(arg1 == "Animated 2" && animatedBackgroungActive == true){
+        player->stop();
+        ui->graphicsView->scene()->removeItem(animatedBackground);
+        loopMedia->stop();
+        delete animatedBackground;
+
+        animatedBackground = new QGraphicsVideoItem();
+        QSize size(800,450);
+        animatedBackground->setSize(size);
+
+        ui->graphicsView->scene()->addItem(animatedBackground);
+        player = new QMediaPlayer(this);
+        player->setVideoOutput(animatedBackground);
+        player->setMedia(QUrl("qrc:/images/blue.mp4"));
+        videoLoopTime = 9800;
+        player->play();
+        loopMedia->start(1);
+    }
+    if(arg1 == "Animated 3" && staticBackgroundActive == true){
+        scene->removeItem(staticBackground);
+        delete staticBackground;
+        staticBackgroundActive = false;
+
+        animatedBackground = new QGraphicsVideoItem();
+        QSize size(800,450);
+        animatedBackground->setSize(size);
+
+        ui->graphicsView->scene()->addItem(animatedBackground);
+        player = new QMediaPlayer(this);
+        player->setVideoOutput(animatedBackground);
+        player->setMedia(QUrl("qrc:/images/greenAbstract.mp4"));
+        videoLoopTime = 9800;
+        player->play();
+        loopMedia->start(1);
+        animatedBackgroungActive = true;
+    }
+    if(arg1 == "Animated 3" && animatedBackgroungActive == true){
+        player->stop();
+        ui->graphicsView->scene()->removeItem(animatedBackground);
+        loopMedia->stop();
+        delete animatedBackground;
+
+        animatedBackground = new QGraphicsVideoItem();
+        QSize size(800,450);
+        animatedBackground->setSize(size);
+
+        ui->graphicsView->scene()->addItem(animatedBackground);
+        player = new QMediaPlayer(this);
+        player->setVideoOutput(animatedBackground);
+        player->setMedia(QUrl("qrc:/images/greenAbstract.mp4"));
+        videoLoopTime = 9800;
+        player->play();
+        loopMedia->start(1);
+    }
+    if(arg1 == "Animated 4" && staticBackgroundActive == true){
+        scene->removeItem(staticBackground);
+        delete staticBackground;
+        staticBackgroundActive = false;
+
+        animatedBackground = new QGraphicsVideoItem();
+        QSize size(800,450);
+        animatedBackground->setSize(size);
+
+        ui->graphicsView->scene()->addItem(animatedBackground);
+        player = new QMediaPlayer(this);
+        player->setVideoOutput(animatedBackground);
+        player->setMedia(QUrl("qrc:/images/geometric.mp4"));
+        videoLoopTime = 18800;
+        player->play();
+        loopMedia->start(1);
+        animatedBackgroungActive = true;
+    }
+    if(arg1 == "Animated 4" && animatedBackgroungActive == true){
+        player->stop();
+        ui->graphicsView->scene()->removeItem(animatedBackground);
+        loopMedia->stop();
+        delete animatedBackground;
+
+        animatedBackground = new QGraphicsVideoItem();
+        QSize size(800,450);
+        animatedBackground->setSize(size);
+
+        ui->graphicsView->scene()->addItem(animatedBackground);
+        player = new QMediaPlayer(this);
+        player->setVideoOutput(animatedBackground);
+        player->setMedia(QUrl("qrc:/images/geometric.mp4"));
+        videoLoopTime = 18800;
+        player->play();
+        loopMedia->start(1);
+    }
+    if(arg1 == "Animated 5" && staticBackgroundActive == true){
+        scene->removeItem(staticBackground);
+        delete staticBackground;
+        staticBackgroundActive = false;
+
+        animatedBackground = new QGraphicsVideoItem();
+        QSize size(800,450);
+        animatedBackground->setSize(size);
+
+        ui->graphicsView->scene()->addItem(animatedBackground);
+        player = new QMediaPlayer(this);
+        player->setVideoOutput(animatedBackground);
+        player->setMedia(QUrl("qrc:/images/code.mp4"));
+        videoLoopTime = 18800;
+        player->play();
+        loopMedia->start(1);
+        animatedBackgroungActive = true;
+    }
+    if(arg1 == "Animated 5" && animatedBackgroungActive == true){
+        player->stop();
+        ui->graphicsView->scene()->removeItem(animatedBackground);
+        loopMedia->stop();
+        delete animatedBackground;
+
+        animatedBackground = new QGraphicsVideoItem();
+        QSize size(800,450);
+        animatedBackground->setSize(size);
+
+        ui->graphicsView->scene()->addItem(animatedBackground);
+        player = new QMediaPlayer(this);
+        player->setVideoOutput(animatedBackground);
+        player->setMedia(QUrl("qrc:/images/code.mp4"));
+        videoLoopTime = 18800;
+        player->play();
+        loopMedia->start(1);
     }
 }

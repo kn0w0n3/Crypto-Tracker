@@ -77,6 +77,7 @@ private:
     bool animatedBackgroungActive = false;
     bool coinFound = false;
     int counter = 0;
+    int videoLoopTime = 0;
 
 
 
