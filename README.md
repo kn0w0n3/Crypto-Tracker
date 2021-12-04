@@ -1,5 +1,5 @@
 # Crypto-Tracker
- App to check info about different cryptocurrencies  
+ App to check info about 100 different cryptocurrencies  
  
 ![code_bg](https://user-images.githubusercontent.com/22214754/141690798-2e974d81-b455-4ab6-a2fe-f42102b60006.gif)    
 
