@@ -24,3 +24,78 @@ Cosmos
 Stellar
 Axie Infinity
 VeChain
+Internet Computer
+Filecoin
+TRON
+THETA
+FTX Token
+ETC
+Fantom
+Crypto.com Coin
+BTCB
+Multi Collateral DAI
+Chrono.tech
+Elrond
+NEAR Protocol
+Hedera Hashgraph
+XTZ
+Decentraland
+The Graph
+Monero
+EOS
+PancakeSwap
+Klaytn
+Aave
+Flow
+THORChain
+Kusama
+TrustNote
+IOTA
+Neo
+Quant
+UNUS SED LEO
+Bitcoin SV
+Cofound.it
+Harmony
+Maker
+Helium
+TerraUSD
+Waves
+The Sandbox
+BitTorrent
+Holo
+Chiliz
+Amp
+Arweave
+SafeMoon
+Huobi BTC
+Stacks
+Enjin Coin
+Compound
+StarCoin
+Celo
+OMG Network
+Symbol
+Experience Points
+Zcash
+Dash
+Theta Fuel
+NEM
+Curve DAO Token
+Huobi Token
+Olympus
+Nexo
+SushiSwap
+Loopring
+Qtum
+KuCoin Token
+Decred
+ICON
+Telcoin
+Basic Attention Token
+IoTeX
+Secret
+Ravencoin
+OKB
+Kadena
+Zilliqa
