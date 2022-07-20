@@ -8,7 +8,9 @@
 https://www.qt.io/ 
 
 **IDE:**  
-Qt creator 4.12.3  
+Qt creator 4.12.3 
+
+**Framework:**  
 Qt framework 5.15.0  
 
 The CoinCap API is being used to retrieve crypto data  
