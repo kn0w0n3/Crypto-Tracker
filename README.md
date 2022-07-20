@@ -13,9 +13,11 @@ Qt creator 4.12.3
 **Framework:**  
 Qt framework 5.15.0  
 
+**Crypto API:**
 The CoinCap API is being used to retrieve crypto data  
 ![coincaplogo2](https://user-images.githubusercontent.com/22214754/179896947-c802f35f-a6f9-499a-938a-ec0ee4cbb763.png)    
 
+**Video COdecs:**  
 The K-Lite Codec Pack will need to be installed if the video background is not working: https://codecguide.com/download_kl.htm  
 ![klitelogo2](https://user-images.githubusercontent.com/22214754/179897468-1731af8b-8a04-40ce-acb2-04d0ee0b3002.png)  
 
