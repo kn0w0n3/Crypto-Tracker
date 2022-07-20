@@ -13,8 +13,9 @@ If you plan to build from source, you will need to use your own Coin Cap API key
 
 The K-Lite Codec Pack will need to be installed if the video background is not working: https://codecguide.com/download_kl.htm  
 
- # Qt
-   https://www.qt.io/
+# Qt  
+![QtLogo](https://user-images.githubusercontent.com/22214754/179895211-d52559ab-35df-4fcc-bf69-7377739330d4.png)  
+https://www.qt.io/  
 
 
 
